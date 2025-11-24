@@ -1,0 +1,159 @@
+<%- include('partials/header') %>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <!-- Page Header -->
+            <div class="text-center mb-4">
+                <h1 class="display-5">
+                    <i class="bi bi-pencil text-primary"></i> Edit Workout
+                </h1>
+                <p class="text-muted">Update your workout details</p>
+            </div>
+            
+            <!-- Edit Workout Form -->
+            <div class="card shadow-sm">
+                <div class="card-body p-4">
+                    <form method="POST" action="/workouts/edit/<%= workout._id %>">
+                        
+                        <!-- Workout Type -->
+                        <div class="mb-3">
+                            <label for="workoutType" class="form-label">
+                                <i class="bi bi-tag"></i> Workout Type *
+                            </label>
+                            <select class="form-select" id="workoutType" name="workoutType" required>
+                                <option value="">Select workout type...</option>
+                                <option value="Push" <%= workout.workoutType === 'Push' ? 'selected' : '' %>>Push Day</option>
+                                <option value="Pull" <%= workout.workoutType === 'Pull' ? 'selected' : '' %>>Pull Day</option>
+                                <option value="Legs" <%= workout.workoutType === 'Legs' ? 'selected' : '' %>>Legs Day</option>
+                                <option value="Full Body" <%= workout.workoutType === 'Full Body' ? 'selected' : '' %>>Full Body</option>
+                                <option value="Cardio" <%= workout.workoutType === 'Cardio' ? 'selected' : '' %>>Cardio</option>
+                                <option value="Other" <%= workout.workoutType === 'Other' ? 'selected' : '' %>>Other</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Exercise Name -->
+                        <div class="mb-3">
+                            <label for="exercise" class="form-label">
+                                <i class="bi bi-trophy"></i> Exercise Name *
+                            </label>
+                            <input type="text" 
+                                   class="form-control" 
+                                   id="exercise" 
+                                   name="exercise" 
+                                   value="<%= workout.exercise %>"
+                                   placeholder="e.g., Bench Press, Squats, Deadlifts"
+                                   required>
+                            <div class="form-text">Enter the specific exercise you performed</div>
+                        </div>
+                        
+                        <!-- Weight -->
+                        <div class="mb-3">
+                            <label for="weight" class="form-label">
+                                <i class="bi bi-speedometer2"></i> Weight (lbs) *
+                            </label>
+                            <input type="number" 
+                                   class="form-control" 
+                                   id="weight" 
+                                   name="weight" 
+                                   value="<%= workout.weight %>"
+                                   min="0"
+                                   step="0.5"
+                                   placeholder="e.g., 185"
+                                   required>
+                        </div>
+                        
+                        <!-- Sets and Reps Row -->
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="sets" class="form-label">
+                                    <i class="bi bi-collection"></i> Sets *
+                                </label>
+                                <input type="number" 
+                                       class="form-control" 
+                                       id="sets" 
+                                       name="sets" 
+                                       value="<%= workout.sets %>"
+                                       min="1"
+                                       placeholder="e.g., 3"
+                                       required>
+                            </div>
+                            
+                            <div class="col-md-6 mb-3">
+                                <label for="reps" class="form-label">
+                                    <i class="bi bi-repeat"></i> Reps *
+                                </label>
+                                <input type="number" 
+                                       class="form-control" 
+                                       id="reps" 
+                                       name="reps" 
+                                       value="<%= workout.reps %>"
+                                       min="1"
+                                       placeholder="e.g., 10"
+                                       required>
+                            </div>
+                        </div>
+                        
+                        <!-- Time of Day -->
+                        <div class="mb-3">
+                            <label for="timeOfDay" class="form-label">
+                                <i class="bi bi-clock"></i> Time of Day *
+                            </label>
+                            <select class="form-select" id="timeOfDay" name="timeOfDay" required>
+                                <option value="">Select time...</option>
+                                <option value="Morning" <%= workout.timeOfDay === 'Morning' ? 'selected' : '' %>>Morning</option>
+                                <option value="Afternoon" <%= workout.timeOfDay === 'Afternoon' ? 'selected' : '' %>>Afternoon</option>
+                                <option value="Evening" <%= workout.timeOfDay === 'Evening' ? 'selected' : '' %>>Evening</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Date -->
+                        <div class="mb-3">
+                            <label for="date" class="form-label">
+                                <i class="bi bi-calendar-date"></i> Workout Date *
+                            </label>
+                            <input type="date" 
+                                   class="form-control" 
+                                   id="date" 
+                                   name="date" 
+                                   value="<%= formattedDate %>"
+                                   required>
+                        </div>
+                        
+                        <!-- Notes optional -->
+                        <div class="mb-4">
+                            <label for="notes" class="form-label">
+                                <i class="bi bi-chat-left-text"></i> Notes (Optional)
+                            </label>
+                            <textarea class="form-control" 
+                                      id="notes" 
+                                      name="notes" 
+                                      rows="3"
+                                      maxlength="500"
+                                      placeholder="Add any additional notes about your workout..."><%= workout.notes || '' %></textarea>
+                            <div class="form-text">Max 500 characters</div>
+                        </div>
+                        
+                        <!-- Form Buttons -->
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-primary flex-fill">
+                                <i class="bi bi-check-circle"></i> Update Workout
+                            </button>
+                            <a href="/workouts" class="btn btn-outline-secondary flex-fill">
+                                <i class="bi bi-x-circle"></i> Cancel
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Warning Alert -->
+            <div class="alert alert-warning mt-4" role="alert">
+                <i class="bi bi-exclamation-triangle"></i>
+                <strong>Note:</strong> Changes will be saved immediately when you click Update Workout.
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %>
