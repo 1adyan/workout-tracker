@@ -1,0 +1,119 @@
+<%- include('partials/header') %>
+
+<!-- Hero Section -->
+<div class="hero-section text-center py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <h1 class="display-3 fw-bold text-primary mb-4">
+                    <i class="bi bi-heart-pulse"></i> Welcome to FitTrack
+                </h1>
+                <p class="lead text-muted mb-4">
+                    Your personal workout companion for tracking fitness progress and achieving your goals.
+                </p>
+                <a href="/workouts" class="btn btn-primary btn-lg px-5 py-3">
+                    <i class="bi bi-play-circle"></i> Get Started
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Features Section -->
+<div class="container my-5">
+    <h2 class="text-center mb-5">Why Choose FitTrack?</h2>
+    
+    <div class="row g-4">
+        <!-- Feature 1 -->
+        <div class="col-md-4">
+            <div class="card feature-card h-100 text-center border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <div class="feature-icon mb-3">
+                        <i class="bi bi-clipboard-check text-primary" style="font-size: 3rem;"></i>
+                    </div>
+                    <h4 class="card-title">Track Multiple Workout Types</h4>
+                    <p class="card-text text-muted">
+                        Log Push, Pull, Legs, Full Body, and Cardio workouts all in one place.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Feature 2 -->
+        <div class="col-md-4">
+            <div class="card feature-card h-100 text-center border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <div class="feature-icon mb-3">
+                        <i class="bi bi-graph-up-arrow text-success" style="font-size: 3rem;"></i>
+                    </div>
+                    <h4 class="card-title">Monitor Progress</h4>
+                    <p class="card-text text-muted">
+                        Track weight, sets, and reps to see your strength gains over time.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Feature 3 -->
+        <div class="col-md-4">
+            <div class="card feature-card h-100 text-center border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <div class="feature-icon mb-3">
+                        <i class="bi bi-clock-history text-info" style="font-size: 3rem;"></i>
+                    </div>
+                    <h4 class="card-title">Time Tracking</h4>
+                    <p class="card-text text-muted">
+                        Record when you workout - morning, afternoon, or evening sessions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- How It Works Section -->
+<div class="container my-5 py-5 bg-light rounded">
+    <h2 class="text-center mb-5">How It Works</h2>
+    
+    <div class="row text-center">
+        <div class="col-md-3 mb-4">
+            <div class="step-number">1</div>
+            <h5>Add Workout</h5>
+            <p class="text-muted">Click "Add Workout" to log your session</p>
+        </div>
+        
+        <div class="col-md-3 mb-4">
+            <div class="step-number">2</div>
+            <h5>Fill Details</h5>
+            <p class="text-muted">Enter exercise, weight, sets, and reps</p>
+        </div>
+        
+        <div class="col-md-3 mb-4">
+            <div class="step-number">3</div>
+            <h5>Track Progress</h5>
+            <p class="text-muted">View all your workouts in one place</p>
+        </div>
+        
+        <div class="col-md-3 mb-4">
+            <div class="step-number">4</div>
+            <h5>Stay Motivated</h5>
+            <p class="text-muted">Watch your fitness journey unfold</p>
+        </div>
+    </div>
+</div>
+
+<!-- Call to Action -->
+<div class="text-center my-5 py-5">
+    <h2 class="mb-4">Ready to Start Tracking?</h2>
+    <p class="lead text-muted mb-4">Join FitTrack today and take control of your fitness journey!</p>
+    <div class="d-flex gap-3 justify-content-center">
+        <a href="/workouts/add" class="btn btn-primary btn-lg">
+            <i class="bi bi-plus-circle"></i> Add Your First Workout
+        </a>
+        <a href="/workouts" class="btn btn-outline-primary btn-lg">
+            <i class="bi bi-list-ul"></i> View All Workouts
+        </a>
+    </div>
+</div>
+
+<%- include('partials/footer') %>
